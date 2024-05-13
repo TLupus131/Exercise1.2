@@ -1,6 +1,7 @@
 package com.example.helloworld;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -53,21 +54,15 @@ public class CalculatorActivity extends AppCompatActivity {
     }
 
     void showContent() {
-        setContentView(R.layout.activity_main3);
-        tv2 = findViewById(R.id.tv2);
+        Intent intent = new Intent(this, ResultActivity.class);
         try {
-            Double.parseDouble(tv1.getText().toString());
-            tv2.setText(tv1.getText());
-        } catch (Exception e){
-            System.err.println(e.getMessage());
+            double result = Double.parseDouble(tv1.getText().toString());
+            intent.putExtra("result", result);
+        } catch (NumberFormatException e) {
+            intent.putExtra("result", 0.0);
         }
-        btn3 = findViewById(R.id.btn3);
-        btn3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setContentView(R.layout.activity_main2);
-                setAttribute();
-            }
-        });
+
+        startActivity(intent);
     }
+
 }
