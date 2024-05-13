@@ -12,8 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class CalculatorActivity extends AppCompatActivity {
     EditText txt1,txt2;
-    Button btn1, btn2, btn3;
-    TextView tv1, tv2;
+    Button btn1, btn2;
+    TextView tv1;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
